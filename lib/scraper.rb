@@ -6,6 +6,7 @@ require_relative './course.rb'
 class Scraper
 
   def get_page
+<<<<<<< HEAD
     html = open("http://learn-co-curriculum.github.io/site-for-scraping/courses")
     Nokogiri::HTML(html)
     #binding.pry
@@ -23,6 +24,19 @@ class Scraper
       item.title = post.css("h2").text
       item.description = post.css("p").text
       item.schedule = post.css(".date").text
+=======
+    html = open("https://flatironschool.com/")
+    Nokogiri::HTML(html)
+  end
+
+  def get_courses
+    get_page.css("body h3")
+  end
+
+  def make_courses
+    get_courses.each {|course|
+      Course.new()
+>>>>>>> 35495d118893fd40a4ebceda92d5da32260cba4b
     }
 
   end
